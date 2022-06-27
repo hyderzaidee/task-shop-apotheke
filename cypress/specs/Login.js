@@ -7,14 +7,14 @@ const loginPageObjects = new LoginPageObjects
 describe('Login Tests', function() {
 
     before(function () {
-        cy.fixture('staticData').then(function(data)
+        cy.fixture('Data').then(function(data)
         {
             this.data = data
         })
 
     })
 
-    it('should open the browser and vist baseUrl', function() {
+    it('should open the browser, vist baseUrl and login the user', function() {
 
 
         cy.visit(this.data.baseUrl)
@@ -23,7 +23,6 @@ describe('Login Tests', function() {
         loginPageObjects.password().type(this.data.password);
         loginPageObjects.loginButton().click();
         cy.wait(10000)
-        
         loginPageObjects.emailfield().type(this.data.email)
         loginPageObjects.passwordfield().type(this.data.password);
         cy.wait(10000)
