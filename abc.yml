@@ -1,0 +1,34 @@
+openapi: 3.0.3
+info:
+ title: API documentation
+ contact:
+  name: Shop Apotheke
+  url: https://www.shop-apotheke.com
+ email: info@shop-apotheke.com
+ description: API Server
+ license:
+  name: private
+termsOfService: 'www.shop-apotheke.com'
+ version: 1.0.0
+servers:
+ - description: default
+ url: 'https://{host}/{cacheable}'
+ variables:
+ cacheable:
+ enum:
+ - cacheable
+ - static
+ default: cacheable
+ host:
+ enum:
+ - api.sa-tech.de
+ default: api.sa-tech.de
+paths:
+ '/auth/v1/{tenant}/login':
+ post:
+ parameters:
+ - allowEmptyValue: false
+ deprecated: false
+ description: ControllerParam tenant
+ in: path
+ name: tenant
